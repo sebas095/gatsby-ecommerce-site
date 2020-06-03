@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
   <>
     <SEO />
     <Nav />
-    <main>{children}</main>
+    <main className="max-w-4xl mx-auto">{children}</main>
   </>
 )
 
