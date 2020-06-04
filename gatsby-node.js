@@ -22,3 +22,29 @@ exports.createResolvers = ({ createResolvers }) => {
     },
   })
 }
+
+exports.createPages = async ({ actions, graphql }) => {
+  const products = (
+    await graphql(`
+      {
+        allStripeProduct {
+          nodes {
+            name
+            slug
+            id
+          }
+        }
+      }
+    `)
+  ).data.allStripeProduct.nodes
+
+  products.forEach(product => {
+    actions.createPage({
+      path: `products/${product.slug}`,
+      component: require.resolve("./src/templates/product.jsx"),
+      context: {
+        id: product.id,
+      },
+    })
+  })
+}
