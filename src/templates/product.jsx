@@ -1,5 +1,36 @@
 import React from "react"
+import { graphql } from "gatsby"
 
-const product = () => <div>HOLA</div>
+import Layout from "../components/Layout"
+import Product from "../components/Product"
 
-export default product
+export default ({ data }) => {
+  const product = data.stripeProduct
+  const skus = data.allStripePrice.edges
+
+  return (
+    <Layout>
+      <Product product={product} skus={skus} />
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+  query($id: String) {
+    stripeProduct(id: { eq: $id }) {
+      name
+      slug
+      images
+    }
+
+    allStripePrice(filter: { product: { eq: $id } }) {
+      edges {
+        node {
+          unit_amount
+          currency
+          created
+        }
+      }
+    }
+  }
+`
