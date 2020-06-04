@@ -26,6 +26,7 @@ export const pageQuery = graphql`
     allStripePrice(filter: { product: { eq: $id } }) {
       edges {
         node {
+          id
           unit_amount
           currency
           created
