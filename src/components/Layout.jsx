@@ -1,12 +1,12 @@
 import React from "react"
 
 import SEO from "./SEO"
-import Nav from "./Nav"
+import NavConnected from "./NavConnected"
 
 const Layout = ({ children }) => (
   <>
     <SEO />
-    <Nav />
+    <NavConnected />
     <main className="max-w-4xl mx-auto">{children}</main>
   </>
 )

@@ -1,7 +1,7 @@
 import React from "react"
 
 import Price from "./Price"
-import CheckoutTemp from "./CheckoutTemp"
+import AddToCartConnected from "./AddToCartConnected"
 
 const Product = ({ product, skus }) => {
   const sku = skus[0].node
@@ -27,7 +27,7 @@ const Product = ({ product, skus }) => {
       </header>
       <div className="text-center p-6">
         <h1 className="text-3xl uppercase mb-4">{product.name}</h1>
-        <CheckoutTemp sku={sku} />
+        <AddToCartConnected sku={sku} />
       </div>
     </article>
   )
