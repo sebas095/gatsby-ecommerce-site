@@ -1,7 +1,7 @@
 import React from "react"
 import { Provider } from "react-redux"
 
-import createStore from "./state/store"
+import createStore from "./redux/store"
 
 export default ({ element }) => {
   const store = createStore()
