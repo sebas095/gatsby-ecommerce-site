@@ -12,10 +12,10 @@ const navItems = [
   },
 ]
 
-const Nav = () => (
+const Nav = ({ shoppingCart }) => (
   <header className="bg-blue-900 text-blue-100 shadow-md">
-    <nav>
-      <ul className="flex">
+    <nav className="flex">
+      <ul className="flex flex-1">
         {navItems.map((item, index) => (
           <li key={index}>
             <Link
@@ -27,6 +27,12 @@ const Nav = () => (
           </li>
         ))}
       </ul>
+      <Link
+        className="hover:bg-blue-800 bg-blue-500 px-6 py-4 inline-block"
+        to="/cart"
+      >
+        {shoppingCart.length}
+      </Link>
     </nav>
   </header>
 )
