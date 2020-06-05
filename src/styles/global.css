@@ -6,10 +6,23 @@ body {
   @apply bg-blue-500 text-white;
 }
 
+button {
+  outline: none !important;
+}
+
 .card {
   @apply bg-blue-600 shadow-md text-blue-100;
 }
 
 .app-btn {
   @apply bg-blue-500 text-white py-4 px-6 rounded shadow-md uppercase font-semibold;
+}
+
+.app-btn:active {
+  opacity: 0.8;
+  transform: scale(0.95);
+}
+
+.app-btn-flat {
+  @apply text-pink-200 py-4 px-6 uppercase font-semibold;
 }
