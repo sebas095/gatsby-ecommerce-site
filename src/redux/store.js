@@ -1,8 +1,14 @@
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
+import { save, load } from "redux-localstorage-simple"
 
-export default () =>
-  createStore(
-    state => state,
-    { hello: "world" },
+import rootReducer from "./reducers"
+
+const reduxCreateStore = () => {
+  return createStore(
+    rootReducer,
+    load(),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
+}
+
+export default applyMiddleware(save())(reduxCreateStore)
