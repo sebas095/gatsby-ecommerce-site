@@ -1,4 +1,7 @@
 import React from "react"
+import { IoMdCart } from "react-icons/io"
+import { IconContext } from "react-icons"
+
 import { Link } from "gatsby"
 
 const navItems = [
@@ -31,6 +34,11 @@ const Nav = ({ shoppingCart }) => (
         className="hover:bg-blue-800 bg-blue-500 px-6 py-4 inline-block"
         to="/cart"
       >
+        <IconContext.Provider
+          value={{ className: "inline-block mr-2 text-xl" }}
+        >
+          <IoMdCart />
+        </IconContext.Provider>
         {shoppingCart.length}
       </Link>
     </nav>
