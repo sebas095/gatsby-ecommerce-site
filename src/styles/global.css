@@ -52,3 +52,7 @@ button {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.h-80 {
+  height: 80vh;
+}
