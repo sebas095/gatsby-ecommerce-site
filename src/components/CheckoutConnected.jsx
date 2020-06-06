@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 
-const CheckoutTemp = ({ sku }) => {
+import Checkout from "./Checkout"
+
+const CheckoutConnected = ({ shoppingCart }) => {
   const [stripe, setStripe] = useState({})
 
   useEffect(() => {
@@ -9,7 +11,10 @@ const CheckoutTemp = ({ sku }) => {
 
   const redirectToCheckout = async ev => {
     const response = await stripe.redirectToCheckout({
-      lineItems: [{ price: sku.id, quantity: 1 }],
+      lineItems: shoppingCart.map(sku => ({
+        price: sku.id,
+        quantity: sku.quantity,
+      })),
       mode: "payment",
       successUrl: `http://localhost:8000/complete`,
       cancelUrl: `http://localhost:8000`,
@@ -20,11 +25,7 @@ const CheckoutTemp = ({ sku }) => {
     }
   }
 
-  return (
-    <button className="app-btn text-xl" onClick={redirectToCheckout}>
-      Checkout
-    </button>
-  )
+  return <Checkout redirectToCheckout={redirectToCheckout} />
 }
 
-export default CheckoutTemp
+export default CheckoutConnected
