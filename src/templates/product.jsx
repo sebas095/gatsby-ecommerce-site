@@ -6,7 +6,8 @@ import Product from "../components/Product"
 
 export default ({ data }) => {
   const product = data.stripeProduct
-  const skus = data.allStripePrice.edges
+  let skus = data.allStripePrice.edges
+  skus = skus.map(sku => ({ node: { ...sku.node, name: product.name } }))
 
   return (
     <Layout>
