@@ -13,9 +13,11 @@ const ShoppingCart = ({ shoppingCart }) => (
           <h2 className="text-3xl flex-1 font-semibold">
             Mi carrito de compras
           </h2>
-          <div>
-            <ClearShoppingCartConnected />
-          </div>
+          {shoppingCart.length > 0 && (
+            <div>
+              <ClearShoppingCartConnected />
+            </div>
+          )}
         </header>
         <ul>
           {shoppingCart.map(sku => (
