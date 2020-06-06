@@ -1,13 +1,14 @@
 import React from "react"
 import { FiDelete } from "react-icons/fi"
-import { IconContext } from "react-icons"
+
+import IconStyled from "./IconStyled"
 
 const ClearShoppingCart = ({ clear }) => (
   <button onClick={clear} className="app-btn-flat">
     Vaciar el carrito
-    <IconContext.Provider value={{ className: "inline-block ml-2 text-xl" }}>
+    <IconStyled className="ml-2">
       <FiDelete />
-    </IconContext.Provider>
+    </IconStyled>
   </button>
 )
 

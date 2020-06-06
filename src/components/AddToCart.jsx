@@ -1,12 +1,13 @@
 import React from "react"
 import { GoPlus } from "react-icons/go"
-import { IconContext } from "react-icons"
+
+import IconStyled from "./IconStyled"
 
 const AddToCart = ({ addProduct }) => (
   <button onClick={addProduct} className="app-btn text-xl">
-    <IconContext.Provider value={{ className: "inline-block mr-2 text-xl" }}>
+    <IconStyled className="mr-2">
       <GoPlus />
-    </IconContext.Provider>
+    </IconStyled>
     Agregar al carrito
   </button>
 )
