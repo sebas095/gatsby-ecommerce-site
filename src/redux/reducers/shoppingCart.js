@@ -1,4 +1,4 @@
-import { ADD_ITEM, CLEAR_SHOPPING_CART } from "../actionTypes"
+import { ADD_ITEM, CLEAR_SHOPPING_CART, REMOVE_ITEM } from "../actionTypes"
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -22,6 +22,9 @@ export default (state = [], action) => {
           quantity: 1,
         },
       ]
+
+    case REMOVE_ITEM:
+      return state.filter(sku => sku.id !== action.payload.id)
 
     case CLEAR_SHOPPING_CART:
       return []

@@ -1,4 +1,4 @@
-import { ADD_ITEM, CLEAR_SHOPPING_CART } from "../actionTypes"
+import { ADD_ITEM, CLEAR_SHOPPING_CART, REMOVE_ITEM } from "../actionTypes"
 
 //Action creators for shopping_cart
 // Funciones que retornan acciones
@@ -10,6 +10,11 @@ import { ADD_ITEM, CLEAR_SHOPPING_CART } from "../actionTypes"
 
 export const addItem = product => ({
   type: ADD_ITEM,
+  payload: product,
+})
+
+export const removeItem = product => ({
+  type: REMOVE_ITEM,
   payload: product,
 })
 
