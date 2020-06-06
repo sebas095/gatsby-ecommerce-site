@@ -6,9 +6,9 @@ import rootReducer from "./reducers"
 const reduxCreateStore = () => {
   return createStore(
     rootReducer,
-    load(),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    []//load(),
+    //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 }
 
-export default applyMiddleware(save())(reduxCreateStore)
+export default reduxCreateStore//applyMiddleware(save())(reduxCreateStore)
