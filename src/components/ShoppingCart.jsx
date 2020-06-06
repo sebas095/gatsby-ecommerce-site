@@ -28,9 +28,11 @@ const ShoppingCart = ({ shoppingCart }) => (
       </div>
     </div>
 
-    <div className="p-6">
-      <CheckoutConnected shoppingCart={shoppingCart} />
-    </div>
+    {shoppingCart.length > 0 && (
+      <div className="p-6">
+        <CheckoutConnected shoppingCart={shoppingCart} />
+      </div>
+    )}
   </div>
 )
 
